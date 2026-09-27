@@ -1,7 +1,5 @@
 # calculator.py - ITNT415 Calculator Project
-# Author: Elijah Amor Barreno
-#BIT41
-#Prof. Maria Gloria Del Rosario
+# Author: Elijah Barreno
 
 BIG_NUMBERS = {
     '0': ["  ___  ", " / _ \\ ", "| | | |", "| |_| |", " \\___/ "],
@@ -13,7 +11,7 @@ BIG_NUMBERS = {
     '6': ["  __  ", " / /  ", "/ _ \\ ", "| (_) |", " \\___/ "],
     '7': [" ____ ", "|___ \\", "  __) |", " / __/ ", "|_____|"],
     '8': ["  ___ ", " ( _ )", " / _ \\", "| (_) |", " \\___/ "],
-    '9': ["  ___ ", " / _ \\", "| (_) |", " \\__, |", "   /_/ "],
+    '9': ["  ___ ", " / _ \\", "| (_) |", " \__, |", "   /_/ "],
     '.': ["   ", "   ", "   ", "   ", " _ "],
     '-': ["       ", "       ", " _____ ", "       ", "       "]
 }
@@ -44,21 +42,33 @@ def calculator():
     print("=========================================")
     print("   🤖 MEGA CALCULATOR 3000 (ASCII EDITION) ")
     print("=========================================")
+    
     num1 = get_number("Enter first number: ")
     op = input("Enter operator (+, -, *, /): ")
     num2 = get_number("Enter second number: ")
-    print(f"Operator entered: {op}")
 
-if __name__ == "__main__":
-    calculator()
+    result = None
 
-if op == '+':
+    if op == '+':
         result = num1 + num2
     elif op == '-':
         result = num1 - num2
+    elif op == '*':
+        result = num1 * num2
+    elif op == '/':
+        if num2 == 0:
+            print("🚨 ERROR: Cannot divide by zero! Black hole warning!")
+            return
+        else:
+            result = num1 / num2
     else:
-        print("Operator not supported yet in this branch.")
+        print("❌ Invalid operator! Use +, -, *, or /.")
         return
 
-    if result.is_integer(): result = int(result)
-    print_giant_result(result)git
+    if result.is_integer():
+        result = int(result)
+        
+    print_giant_result(result)
+
+if __name__ == "__main__":
+    calculator()
