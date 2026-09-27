@@ -51,7 +51,7 @@ def calculator():
 
 if __name__ == "__main__":
     calculator()
-    
+
 if op == '+':
         result = num1 + num2
     elif op == '-':
@@ -61,4 +61,4 @@ if op == '+':
         return
 
     if result.is_integer(): result = int(result)
-    print_giant_result(result)
+    print_giant_result(result)git
