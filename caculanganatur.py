@@ -54,7 +54,11 @@ if __name__ == "__main__":
     
 if op == '+':
         result = num1 + num2
-        if result.is_integer(): result = int(result)
-        print_giant_result(result)
+    elif op == '-':
+        result = num1 - num2
     else:
         print("Operator not supported yet in this branch.")
+        return
+
+    if result.is_integer(): result = int(result)
+    print_giant_result(result)
